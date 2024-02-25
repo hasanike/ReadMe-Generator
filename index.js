@@ -1,7 +1,7 @@
 // packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs')
-const generator = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // an array for user Input
 const questions = ["What is the title of your webpage?", "Can you describe your webpage?", "What are the installation instructions?", "How do you use the webpage?", "Who should be credited for working on the webpage?", "Did you run tests?", "Do you have a license?","What is your Github?", "What is your email?"];
@@ -9,7 +9,7 @@ const questions = ["What is the title of your webpage?", "Can you describe your 
 
 // function to write README file
 function writeToFile(fileName, data) { 
-    const info = generator(data);
+    const info = generateMarkdown(data);
     fs.writeFile(fileName, info , (err) =>
         err ? console.error(err) : console.log('Success!')
         );
