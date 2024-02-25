@@ -1,6 +1,7 @@
 // packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs')
+const generator = require('./utils/generateMarkdown')
 
 // an array for user Input
 const questions = ["What is the title of your webpage?", "Can you describe your webpage?", "What are the installation instructions?", "How do you use the webpage?", "Who should be credited for working on the webpage?", "Did you run tests?", "Do you have a license?","What is your Github?", "What is your email?"];
@@ -63,12 +64,12 @@ inquirer
             choices: ["MIT", "ISC", "GPLv3", "None"],
         },
 
-        {   type: 'list',
+        {   type: 'input',
             message: questions[7],
             name: 'github',
         },
         {   
-            type: 'list',
+            type: 'input',
             message: questions[8],
             name: 'email',
             
